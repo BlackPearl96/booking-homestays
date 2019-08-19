@@ -3,7 +3,7 @@ Bundler/OrderedGems:
     - 'Gemfile'
 
 Metrics/LineLength:
-  Max: 120
+  Max: 135
 
 Metrics/MethodLength:
   Max: 20

@@ -3,7 +3,7 @@
 class Price < ApplicationRecord
   has_many :bills, dependent: :destroy
   has_many :vouchers, through: :bills
-  has_many :rooms, dependent: :destroy
+  belongs_to :room
 
   validates :cost,
             format: { with: /\A\d+(?:\.\d{0,2})?\z/ },

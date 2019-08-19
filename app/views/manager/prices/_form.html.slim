@@ -1,6 +1,8 @@
 = form_for [:manager, @price] do |price|
   h2.text-center = t(".price")
   = render "shared/manager/error_messages", object: @price
+
+  = price.hidden_field :room_id, value: @room.id
   = price.label :cost
   = price.number_field :cost, step: :any, class: "form-control", placeholder: "$"
   br/

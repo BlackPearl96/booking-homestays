@@ -48,12 +48,6 @@ end
   FavoriteSpace.create! name: favorite_space
 end
 
-20.times do |price|
-  price = rand(1..999999)
-  Price.create!(cost: price,
-                cleaning_fee: price)
-end
-
 100.times do |n|
   name = Faker::Company.name.upcase
   area_id = Area.all.sample.id
@@ -66,7 +60,6 @@ end
   acreage = 100
   bed_room = rand(1..15)
   bath_room = rand(1..6)
-  price = Price.all.sample.id
   Room.create!(name: name,
     user_id: user_id,
     area_id: area_id,
@@ -77,8 +70,12 @@ end
     guest: guest,
     acreage: acreage,
     bed_room: bed_room,
-    bath_room: bath_room,
-    price_id: price)
+    bath_room: bath_room)
+end
+
+Room.ids.each do |ids|
+  price = rand(1..999999)
+  Price.create!(cost: price, cleaning_fee: price, room_id: ids)
 end
 
 ["Wifi","May Giat", "Tu Lanh", "Ho Boi", "Dieu Hoa"].each do |utility|

@@ -11,15 +11,14 @@ class Room < ApplicationRecord
   belongs_to :location
   belongs_to :user
   belongs_to :favorite_space
-  belongs_to :price
   belongs_to :area
   has_many :room_images
+  has_one :price
 
   validates :address, presence: true, length: { maximum: 50 }, if: :step_content?
   validates :name, presence: true, length: { maximum: 50 }, if: :step_home?
   validates :guest, :bed_room, :bath_room, presence: true,
                                            numericality: { only_integer: true }, if: :step_home?
-
   validates :type_room, presence: true, if: :step_home?
 
   enum type_room: { private_room: 0, entire: 1 }
