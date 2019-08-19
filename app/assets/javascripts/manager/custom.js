@@ -24,6 +24,11 @@ function previewImages() {
 }
 
 $(document).ready(function(){
+  $('#room_table').DataTable({
+    scrollY: 500,
+    "pageLength": 25,
+  });
+
   $('#admin_table').DataTable({
     scrollY: 500,
     "pageLength": 25,
@@ -31,6 +36,13 @@ $(document).ready(function(){
     "columnDefs": [
       { "orderable": false, "targets": [5] },
     ]
+  });
+
+  $("#micropost_picture").bind("change", function(){
+    var size_in_megabytes = this.files(0).size/1024/1024;
+      if (size_in_megabytes > 5) {
+        alert("Maximum file size is 5MB. Please choose an other file!");
+      }
   });
 
   $('#member_table').DataTable({

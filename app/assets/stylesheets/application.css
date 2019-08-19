@@ -2,4 +2,5 @@
  *= require custom
 .*= require toastr
  *= require_self
+ *= require toastr
  */

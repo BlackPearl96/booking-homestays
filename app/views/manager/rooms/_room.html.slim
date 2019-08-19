@@ -1,6 +1,6 @@
 tr
   td
-    = room.name
+    = link_to room.name, manager_room_path(room)
   td
     = room.location.name
   td
@@ -8,3 +8,5 @@ tr
   td.action
     = link_to t(".edit"), edit_manager_room_path(room),
       class: "action btn btn-outline-info"
+    = link_to t(".delete"), manager_room_path(room), method: :delete,
+      data: {confirm: t(".sure") }, class: "action btn btn-outline-danger"

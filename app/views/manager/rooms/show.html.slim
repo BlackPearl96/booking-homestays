@@ -1,0 +1,53 @@
+.bs-example
+  ul.nav.nav-tabs
+    li.nav-item
+      a.nav-link.active data-toggle="tab" href="#home"  = t ".description"
+    li
+      a.nav-link data-toggle="tab" href="#menu1"  = t ".room"
+    li
+      a.nav-link data-toggle="tab" href="#menu2"  = t ".utility"
+    li
+      a.nav-link data-toggle="tab" href="#menu3"  = t ".image"
+  .tab-content
+    #home.tab-pane.fade.show.active
+      h3 = @room.name
+      = @room.description
+    #menu1.tab-pane.fade
+      h3 = t ".room"
+      div.row
+        .col-md-3
+          = t ".guest"
+        .col-md-9
+          = @room.guest
+      div.row
+        .col-md-3
+          = t ".bed_room"
+        .col-md-9
+          = @room.bed_room
+      div.row
+        .col-md-3
+          = t ".bath_room"
+        .col-md-9
+          = @room.bath_room
+      div.row
+        .col-md-3
+          = t ".acreage"
+        .col-md-9
+          = @room.acreage
+      div.row
+        .col-md-3
+          = t ".address"
+        .col-md-9
+          = @room.address
+      div.row
+        .col-md-3
+          = t ".type_room"
+        .col-md-9
+          = @room.type_room
+    #menu2.tab-pane.fade
+      h3 = t ".utility"
+      p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+    #menu3.tab-pane.fade
+      h3 = t ".image"
+      - @room.room_images.each do |img|
+        = image_tag img.image.url, class: "image-detail"

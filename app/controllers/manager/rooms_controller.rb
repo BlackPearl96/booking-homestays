@@ -2,7 +2,7 @@
 
 module Manager
   class RoomsController < BaseController
-    before_action :load_room, only: %i[edit update]
+    before_action :load_room, only: %i(edit update show destroy)
 
     def index
       @rooms = Room.sort_by_name
@@ -14,6 +14,8 @@ module Manager
     end
 
     def edit; end
+
+    def show; end
 
     def create
       @room = current_admin.rooms.build room_params
@@ -32,6 +34,10 @@ module Manager
       else
         render :edit, danger: t(".update_fail")
       end
+    end
+
+    def destroy
+      redirect_to manager_rooms_path, flash: {success: t(".deleted_success")} if @room.destroy
     end
 
     private

@@ -4,7 +4,7 @@
 //= require bootstrap
 //= require popper
 //= require toastr
-//= require datatable
+//= require manager/datatable
 //= require manager/custom
 //= require cocoon
 
