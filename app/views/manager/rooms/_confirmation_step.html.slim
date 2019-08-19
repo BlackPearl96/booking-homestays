@@ -1,0 +1,18 @@
+.show-image
+  = f.label :image, class: "col-form-label"
+  = f.fields_for :room_images, build_images_for_room do |builder|
+    .nested-fields
+      - if builder.object.image?
+        = image_tag builder.object.image.thumb.url, class: "thumb-image"
+        = link_to_remove_association "", builder, class: "nested-image btn"
+      - else
+        = builder.file_field :image, multiple: true, name: "room_images[image][]",
+          class: "form-control preview-image", presence: true
+  #preview
+
+.form-checbox
+  = f.collection_check_boxes(:utility_ids, set_utilities, :id, :name, required: true) do |u|
+    label.check-box-utility
+      = u.label()
+      = u.check_box()
+      = content_tag(:div, "", class: "checkmark")

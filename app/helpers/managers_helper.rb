@@ -12,4 +12,8 @@ module ManagersHelper
   def bill_vouchers(price_bill)
     (price_bill.price.cost - ((price_bill.price.cost * price_bill.voucher.sale) / 100)) + price_bill.price.cleaning_fee
   end
+
+  def set_utilities
+    Utility.sort_by_name
+  end
 end

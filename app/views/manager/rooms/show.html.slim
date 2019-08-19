@@ -46,7 +46,8 @@
           = @room.type_room
     #menu2.tab-pane.fade
       h3 = t ".utility"
-      p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+      - @room_utilities.each do |room_utility|
+        = room_utility.utility.name
     #menu3.tab-pane.fade
       h3 = t ".image"
       - @room.room_images.each do |img|

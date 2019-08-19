@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   devise :registerable, :database_authenticatable, :recoverable, :rememberable, :validatable, :timeoutable
   has_many :rooms
+  has_one_attached :avatar
 
   validates :name, presence: true, length: { maximum: 45 }
   validates :address, presence: true, length: { maximum: 255 }

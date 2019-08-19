@@ -1,0 +1,24 @@
+= f.label :name, class: "col-form-label"
+= f.text_field :name, class: "form-control", required: true
+
+= f.label :locations, class: "col-form-label"
+= f.select :location_id, options_for_select(build_location_for_rooms,
+  selected: f.object.location_id), {include_blank: t("please_choose_one")},
+  {class: "form-control", required: true}
+
+= f.label :type_room, class: "col-form-label"
+= f.select :type_room, options_for_select(select_of_types,
+  selected: f.object.type_room), {include_blank: t("please_choose_one")},
+  {class: "form-control", required: true}
+
+= f.label :guest, class: "col-form-label"
+= f.number_field :guest, class: "form-control", required: true,
+  placeholder: "plesase enter the number"
+
+= f.label :bed_room, class: "col-form-label"
+= f.number_field :bed_room, class: "form-control", required: true,
+  placeholder: "plesase enter the number"
+
+= f.label :bath_room, class: "col-form-label"
+= f.number_field :bath_room, class: "form-control", required: true,
+  placeholder: "plesase enter the number"
