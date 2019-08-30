@@ -1,0 +1,37 @@
+.container#hs-wrapper
+  article#main
+    section#content
+      .row#homestay-wizard
+        section.col-md-8
+          .row
+            .tabs-room.col-xs-12
+              ul.room.room-tabs.room-stacked
+                li.location.active
+                  h3 = t(".create_room")
+            .room-content.col-xs-12
+              .tab-content-room.col-xs-12
+                .room-panel
+                  - provide(:button_title,t(".create_room") )
+                  = render "form"
+
+        section#profile-sidebar.col-md-4.hidden-sm.hidden-xs
+          .simple-container.with-icon.note
+            .icon.fa.fa-edit
+            p.strong Complete each step now and you can edit your listing once finished
+          .tip.home.spacer-double
+            section.homestay-container.no-shadow
+              .body
+                .detail.flush.lightbulb-icon
+                h5 Tips for a great description
+                ul
+                  li Is your home in the town, city centre, suburbs or countryside?
+                  li Who else lives at home with you?
+                  li What type of bedroom(s) are available to guests?
+                  li What kind of lounge/living/outdoor areas are there?
+                  li Have you or your family any special interests?
+                  li Are any other languages spoken at home?
+          section.get-in-touch
+            h5 Question? Get in touch:
+            p.small
+              | Email us at
+              a href="mailto:hostsupport@homestay.com"  hostsupport@homestay.com

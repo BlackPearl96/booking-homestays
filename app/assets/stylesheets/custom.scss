@@ -570,3 +570,210 @@ h1, h2, h3, h4, h5, h6 {
 #error_explanation {
   color: red;
 }
+
+// body{
+//   background-color: #f1efef;
+//   font-size: 16px;
+//   line-height: 1.625em;
+//   font-family: Open sans;
+//   font-weight: 400;
+//   color: #512b1a;
+// }
+
+.simple-container.note {
+  border-color: #ca005d;
+}
+.simple-container.with-icon {
+  padding-left: 44px;
+  position: relative;
+  height: 77px;
+}
+.simple-container.border {
+  border-width: 2px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.simple-container {
+  padding: 1.25em 15px;
+  border-radius: 4px;
+  border: 1px solid #dbd8d6;
+}
+
+.simple-container.with-icon .icon {
+  width: 18px;
+  height: 30px;
+  background-size: contain;
+  background-position: top left;
+  position: absolute;
+  top: 21px;
+  left: 15px;
+}
+
+.simple-container p {
+  font-size: .75em;
+  line-height: 1.6em;
+  letter-spacing: .03em;
+  padding: 0;
+}
+.strong {
+  font-weight: 600;
+}
+
+.spacer-double {
+  margin-top: 2.5em;
+}
+
+.homestay-container.no-shadow {
+  box-shadow: inset 0 0 0 1px #dbd8d6;
+}
+
+.homestay-container {
+  background-color: white;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.homestay-container .body:last-of-type {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.homestay-container .body:not(.no-padding) {
+  padding: 1.25em 15px;
+}
+
+.homestay-container > div {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.homestay-container .body .detail.lightbulb-icon {
+  background-image: url("lightpub.png");
+}
+
+.homestay-container .body .detail.flush {
+  margin-top: -1.25em;
+  height: 80px;
+}
+
+.homestay-container .body .detail {
+  width: 45px;
+  height: 50px;
+  float: right;
+  margin-left: 0.4166666667em;
+  margin-bottom: 0.4166666667em;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+}
+
+.lightbulb-icon {
+  background: url("lightpub.png") center no-repeat;
+}
+
+h5 {
+  font-size: .75em;
+  line-height: 1.625em;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+
+#homestay-wizard #profile-sidebar .homestay-container ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: .9em;
+}
+
+h5 + p, h5 + ul {
+  margin-top: .5em;
+}
+
+#homestay-wizard #profile-sidebar .homestay-container ul li {
+  margin-left: .7em;
+  text-indent: -.7em;
+  line-height: 1.6em;
+}
+
+.homestay_wizard #sidebar-modal .homestay-container ul li::before, #homestay-wizard #profile-sidebar .homestay-container ul li::before {
+  content: "• ";
+}
+
+#homestay-wizard #profile-sidebar .homestay-container ul li + li {
+  margin-top: .3em;
+}
+
+#homestay-wizard #profile-sidebar .homestay-container ul li {
+  margin-left: .7em;
+  text-indent: -.7em;
+  line-height: 1.6em;
+}
+
+.room {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+#homestay-wizard .room-tabs > li.active {
+  box-shadow: none;
+  padding: 1.25em 15px;
+}
+
+.room-stacked > li + li {
+  margin-top: 2px;
+  margin-left: 0;
+}
+
+.room-stacked > li {
+  float: none;
+}
+
+.room-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+
+.room > li {
+  position: relative;
+  display: block;
+}
+
+.tabs-room {
+  width: 100%;
+  float: left;
+  background-color: #ca005d;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+}
+
+.tab-content-room {
+  padding-top: 1.25em;
+  padding-bottom: 1.25em;
+  background-color: #ffffff;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+  min-height: 248px;
+  border-radius: 10px;
+}
+
+.col-xs-12{
+  width: 100%;
+}
+
+#new_room {
+  padding: 0px 25px 35px 25px;
+}
+
+.btn-continue{
+  float: right;
+}
+
+.create-room{
+  padding: 0 26px;
+  margin-top: 20px;
+}
