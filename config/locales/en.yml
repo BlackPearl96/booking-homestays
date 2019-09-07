@@ -1,5 +1,7 @@
 en:
   please_choose_one: please choose one
+  select_are: Select Area
+  select_location: Select Location
   sure: "Are you sure?"
   layouts:
     header:

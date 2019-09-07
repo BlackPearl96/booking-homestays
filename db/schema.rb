@@ -64,15 +64,6 @@ ActiveRecord::Schema.define(version: 2019_09_06_142140) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "location_favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "location_id"
-    t.bigint "favorite_space_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["favorite_space_id"], name: "index_location_favorites_on_favorite_space_id"
-    t.index ["location_id"], name: "index_location_favorites_on_location_id"
-  end
-
   create_table "locations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -109,7 +100,6 @@ ActiveRecord::Schema.define(version: 2019_09_06_142140) do
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "location_id"
-    t.bigint "favorite_space_id"
     t.bigint "area_id"
     t.string "name"
     t.string "address"
@@ -161,11 +151,6 @@ ActiveRecord::Schema.define(version: 2019_09_06_142140) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "flag", default: false
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -9,12 +9,20 @@ module ManagersHelper
     Location.sort_by_name.map { |l| [l.name, l.id] }
   end
 
+  def build_area_to_location
+    Area.sort_by_name.map { |a| [a.name, a.id] }
+  end
+
   def bill_vouchers(price_bill)
     (price_bill.price.cost - ((price_bill.price.cost * price_bill.voucher.sale) / 100)) + price_bill.price.cleaning_fee
   end
 
   def select_favorite_space
     FavoriteSpace.all.map { |f| [f.name, f.id] }
+  end
+
+  def set_utilities
+    Utility.sort_by_name
   end
 
   def set_utilities

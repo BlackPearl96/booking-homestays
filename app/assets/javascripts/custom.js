@@ -28,6 +28,7 @@ $(document).ready(function() {
     });
   }
 
+  $('.preview-image').on("change", previewImages);
 });
 
 function readURL(f, previewId) {
@@ -55,6 +56,25 @@ function previewImages() {
   }
 }
 
-$(document).ready(function() {
-  $('.preview-image').on("change", previewImages);
+$(document).on("change", "#location select", function(){
+  var location = $(this).val();
+  $.ajax({
+    url: "/rooms/new",
+    method: "GET",
+    dataType: "json",
+    data: {location: location},
+    error: function (xhr, status, error) {
+      console.error('AJAX Error: ' + status + error);
+    },
+    success: function (response) {
+      console.log(response);
+      var areas = response["areas"];
+      $("#area select").empty();
+
+      $("#area select").append('<option>Select Area</option>');
+      for(var i=0; i< areas.length; i++)  {
+        $("#area select").append('<option value="' + areas[i]["id"] + '">' + areas[i]["name"] + '</option>');
+      }
+    }
+  });
 });

@@ -6,6 +6,7 @@ class RoomsController < ApplicationController
   def new
     session[:room_params] ||= {}
     @room = Room.new
+    get_area_to_location
     @room.room_images.build
     @room.current_step = session[:room_step]
   end
@@ -36,9 +37,9 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit :name, :address, :rate_point, :description,
-                                 :guest, :type_room, :acreage, :bed_room,
-                                 :bath_room, :location_id, utility_ids: [],
-                                                           room_images_attributes: %i[id room_id image _destroy]
+                                 :guest, :type_room, :acreage, :bed_room, :favorite_space_id,
+                                 :bath_room, :location_id, :area_id, utility_ids: [],
+                                 room_images_attributes: %i[id room_id image _destroy]
   end
 
   def upload_images
@@ -63,5 +64,17 @@ class RoomsController < ApplicationController
       session[:room_step] = room.current_step
     end
     false
+  end
+
+  def get_area_to_location
+    @areas = []
+    if params[:location].present?
+      @areas = Location.find(params[:location]).areas
+    end
+    if request.xhr?
+      respond_to do |format|
+        format.json { render json: {areas: @areas} }
+      end
+    end
   end
 end

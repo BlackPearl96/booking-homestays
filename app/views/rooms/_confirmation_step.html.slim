@@ -10,6 +10,7 @@
   #preview
 
 .form-checbox
+  = f.label :utilities, class: "col-form-label"
   = f.collection_check_boxes(:utility_ids, set_utilities, :id, :name, presence: true) do |u|
     label.check-box-utility
       = u.label()

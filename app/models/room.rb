@@ -13,7 +13,7 @@ class Room < ApplicationRecord
   belongs_to :favorite_space
   belongs_to :area
   has_many :room_images
-  has_one :price
+  has_one :price, dependent: :destroy
 
   validates :address, :name, :type_room, presence: true, if: :step_home?
   validates :guest, :bed_room, :bath_room, presence: true,
