@@ -1,0 +1,22 @@
+.container-fluid
+  .main-room
+    = form_for @price, url: url  do |price|
+      h2.text-center = t(".price")
+
+      = render "shared/manager/error_messages", object: @price
+
+      = price.hidden_field :room_id, value: @room.id
+
+      = price.label :cost
+      = price.number_field :cost, step: :any, class: "form-control", placeholder: "$"
+      br/
+      = price.label :Cleaning
+      = price.number_field :cleaning_fee, step: :any, class: "form-control", placeholder: "$"
+      br/
+      = price.fields_for(:vouchers) do |voucher|
+          = render "voucher_fields", f: voucher
+      .links
+        = link_to_add_association t(".add-voucher"), price, :vouchers
+      div.btn-prices
+        = price.submit class: "btn btn-primary price"
+        = link_to "Back", :back, class: "btn btn-outline-secondary price"

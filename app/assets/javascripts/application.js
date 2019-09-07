@@ -8,6 +8,7 @@
 //= require multislider
 //= require jquery-ui
 //= require custom
+//= require cocoon
 
 /*global toastr*/
 toastr.options = {

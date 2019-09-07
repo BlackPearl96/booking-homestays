@@ -12,27 +12,24 @@ class RoomsController < ApplicationController
 
   def create
     session[:room_params].deep_merge!(room_params) if room_params
-    @room = current_member.rooms.build session[:room_params]
+    @room = current_admin.rooms.build session[:room_params]
     @room.current_step = session[:room_step]
-    if @room.valid?
-      if params[:back_button]
-        @room.previous_step
-      elsif @room.last_step?
-        @room.save if @room.all_valid?
-        session[:room_params] = session[:room_step] = nil
-        upload_images if params[:room_images]
-        redirect_to room_path(@room), success: t(".create_room")
-        return
-      else
-        @room.next_step
-      end
-      session[:room_step] = @room.current_step
-    end
+    return redirect_to manager_room_path(@room), success: t(".create_room") if btn_action_step @room
     if @room.last_step?
-      redirect_to new_room_path
+      redirect_to new_manager_room_path
     else
       render :new
     end
+  end
+
+  def destroy
+    @room = Room.find params[:id]
+    if @room.destroy
+      flash[:success] = t ".del_success"
+    else
+      flash[:danger] = t ".del_fail"
+    end
+    redirect_to index_profile_path(current_member)
   end
 
   private
@@ -48,5 +45,23 @@ class RoomsController < ApplicationController
     params[:room_images]["image"].each do |a|
       @room_images = @room.room_images.create!(image: a)
     end
+  end
+
+  def btn_action_step(room)
+    if room.valid?
+      if params[:back_button]
+        room.previous_step
+      elsif room.last_step?
+        room.save if room.all_valid?
+        session.delete(:room_step)
+        session.delete(:room_params)
+        upload_images if params[:room_images]
+        return true
+      else
+        room.next_step
+      end
+      session[:room_step] = room.current_step
+    end
+    false
   end
 end

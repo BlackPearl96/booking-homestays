@@ -17,7 +17,7 @@ nav.custom-nav
               = image_tag current_member.avatar.url, class: "custom-avatar-drop"
               = truncate(current_member.name, length: 10)
           #hidden-dropdown
-            = link_to "Profile", "#"
+            = link_to "Profile", index_profile_path(current_member)
             = link_to t(".setting"), edit_member_registration_path
             = link_to t(".signout"), destroy_member_session_path, method: :delete
       - else

@@ -1,19 +1,20 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root "members#index"
+  root "home#index"
 
   devise_for :admins, controllers: { sessions: "manager/sessions", passwords: "manager/passwords" }
   devise_for :members, controllers: { registrations: "registrations",
                                       sessions: "sessions", passwords: "passwords", confirmations: "confirmations" }
 
-  get "favorite_spaces/:id", to: "home#show"
-  get "autocomplete", to: "search#show"
+  devise_scope :member do
+    get "/members/:member_id/rooms/:id/", to: "registrations#show", as: "show_profile"
+    get "members/:id", to: "registrations#index", as: "index_profile"
+  end
 
-  resources :favorite_spaces, only: [:show]
-  resources :search, only: :index
-  resources :autocomplete, only: :index
-  resources :rooms
+  resources :rooms do
+    resources :prices
+  end
 
   namespace :manager do
     root "members#index"
@@ -21,6 +22,11 @@ Rails.application.routes.draw do
     resources :rooms do
       resources :prices
     end
+
+    resources :favorite_spaces
+    resources :admins
+    resources :members
+    resources :utilities
 
     resources :locations do
       resources :areas, except: %i[destroy edit update]
@@ -30,10 +36,7 @@ Rails.application.routes.draw do
       resources :addresses, only: %i[new create]
     end
 
-    resources :favorite_spaces
-    resources :admins
-    resources :members
-    resources :utilities
     resources :areas, except: %i[new create]
+    resources :prices, only: %i[index new create]
   end
 end

@@ -6,4 +6,4 @@
     = f.submit "Continue", class: "create-room btn btn-outline-success" unless @room.last_step?
   = f.submit "Back", name: "back_button" ,class: "create-room btn btn-outline-success" unless @room.first_step?
   .submit
-    = f.submit yield(:button_title), class: "create-room btn btn-outline-primary" if @room.last_step?
+    = f.submit t(".save"), class: "create-room btn btn-outline-primary" if @room.last_step?

@@ -1,0 +1,14 @@
+.nested-fields
+  ul.voucher
+    = link_to_remove_association f do
+      span.fa.fa-times-circle aria-hidden="true"
+
+    = f.label :code
+    = f.text_field :code, class: "form-control form-control-sm"
+    br
+    = f.label :sale
+    = f.number_field :sale, step: :any, class: "form-control form-control-sm"
+    br
+    = f.label :date_off
+    = f.datetime_field :date_off, class: "form-control form-control-sm"
+    br

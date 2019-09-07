@@ -109,6 +109,18 @@ en:
       back: "Back"
       wait_confirm: "Currently waiting confirmation for: %{unconfirm}"
 
+    show:
+      description: Description
+      room: Rooms
+      utility: Utilities
+      image: Images
+      guest: Guest
+      bed_room: Bed Rooms
+      bath_room: Bath Rooms
+      acreage: Acreage
+      address: Address
+      type_room: Type Rooms
+
   passwords:
     new_form:
       title: "Forgot Your Password?"
@@ -157,3 +169,11 @@ en:
               size: "is too big"
         prices: "Manager Prices & Vouchers"
         favorite-space: "Manager Favorite Spaces"
+  rooms:
+    form:
+      save: Save
+    create:
+      create_room: Create Room Successful
+    destroy:
+      del_success: Delete successful
+      del_fail: Delete failed

@@ -1,0 +1,10 @@
+tr
+  td
+    = link_to room.name, show_profile_path(current_member, room)
+  td
+    = room.location.name
+  td
+    = room.type_room
+  td.action
+    = link_to t(".delete"), room_path(room), method: :delete,
+      data: {confirm: t("sure") }, class: "action btn btn-outline-danger"
