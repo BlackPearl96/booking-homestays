@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def show
     @room = Room.find params[:id]
-    @room_utilities = @room.room_utilities
+    @room_utilities = @room.utilities
   end
 
   protected

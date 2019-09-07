@@ -37,8 +37,9 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit :name, :address, :rate_point, :description,
-                                 :guest, :type_room, :acreage, :bed_room, :favorite_space_id,
-                                 :bath_room, :location_id, :area_id, utility_ids: [],
+                                 :guest, :type_room, :acreage, :bed_room,
+                                 :favorite_space_id, :code_room, :bath_room,
+                                 :location_id, :area_id, utility_ids: [],
                                  room_images_attributes: %i[id room_id image _destroy]
   end
 

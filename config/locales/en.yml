@@ -39,7 +39,7 @@ en:
         delete: "Delete"
       show:
         description: Description
-        room: Rooms
+        detail: Details
         utility: Utilities
         image: Images
         guest: Guest
@@ -113,7 +113,7 @@ en:
 
     show:
       description: Description
-      room: Rooms
+      detail: Details
       utility: Utilities
       image: Images
       guest: Guest

@@ -19,7 +19,7 @@ class Room < ApplicationRecord
   validates :guest, :bed_room, :bath_room, presence: true,
                                            numericality: { only_integer: true }, if: :step_content?
 
-  enum type_room: { private_room: 0, entire: 1 }
+  enum type_room: { Nhà_Riêng: 0, Căn_Hộ: 1 }
 
   accepts_nested_attributes_for :room_images, allow_destroy: true
 

@@ -5,7 +5,7 @@
         = t ".description"
     li
       = link_to "#menu1", class: "nav-link", data:{toggle: "tab"} do
-        = t ".room"
+        = t ".detail"
     li
       = link_to "#menu2", class: "nav-link", data:{toggle: "tab"} do
         = t ".utility"
@@ -43,7 +43,7 @@
     #menu2.tab-pane.fade
       h3 = t ".utility"
       - @room_utilities.each do |room_utility|
-        = room_utility.utility.name
+        = room_utility.name
     #menu3.tab-pane.fade
       h3 = t ".image"
       - @room.room_images.each do |img|

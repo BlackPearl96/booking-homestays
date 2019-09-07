@@ -1,8 +1,27 @@
-= f.label :acreage, class: "col-form-label"
-= f.text_field :acreage, class: "form-control", required: true
+.form-group
+  = f.label :code_room, class: "col-form-label"
+  = f.number_field :code_room, class: "form-control", required: true,
+    placeholder: "plesase enter the number"
 
-= f.label :address, class: "col-form-label"
-= f.text_field :address, class: "form-control", required: true
+.form-group
+  = f.label :guest, class: "col-form-label"
+  = f.number_field :guest, class: "form-control", required: true,
+    placeholder: "plesase enter the number"
 
-= f.label :description, class: "col-form-label"
-= f.text_area :description, class: "form-control", required: true
+.form-group
+  = f.label :bed_room, class: "col-form-label"
+  = f.number_field :bed_room, class: "form-control", required: true,
+    placeholder: "plesase enter the number"
+
+.form-group
+  = f.label :bath_room, class: "col-form-label"
+  = f.number_field :bath_room, class: "form-control", required: true,
+    placeholder: "plesase enter the number"
+
+.form-group
+  = f.label :acreage, class: "col-form-label"
+  = f.text_field :acreage, class: "form-control", required: true
+
+.form-group
+  = f.label :description, class: "col-form-label"
+  = f.text_area :description, class: "form-control", required: true
