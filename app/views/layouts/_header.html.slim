@@ -8,8 +8,6 @@ nav.custom-nav
         = search_field_tag :"searchroom[name_or_location_name_or_area_name_cont]","", class: 'form-control search-form', placeholder: 'Search room with name or area or location', id: "search-rooms"
     .col-md-1
     ul.col-md-3
-      li = link_to "item1", "#"
-      li = link_to "item4", "#"
       - if member_signed_in?
         li#show-dropdown
           = link_to("#") do
@@ -18,10 +16,11 @@ nav.custom-nav
               = truncate(current_member.name, length: 10)
           #hidden-dropdown
             = link_to "Profile", index_profile_path(current_member)
+            = link_to "Wish List", wishlist_path
             = link_to t(".setting"), edit_member_registration_path
             = link_to t(".signout"), destroy_member_session_path, method: :delete
       - else
         li = link_to t(".signup"), new_member_registration_path
-        li = link_to t(".signin"), new_member_session_path
+        li = link_to t(".signin"), member_session_path
 header
   .headline

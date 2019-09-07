@@ -3,18 +3,26 @@
 Rails.application.routes.draw do
   root "home#index"
 
-  devise_for :admins, controllers: { sessions: "manager/sessions", passwords: "manager/passwords" }
-  devise_for :members, controllers: { registrations: "registrations",
-                                      sessions: "sessions", passwords: "passwords", confirmations: "confirmations" }
+  get "favorite_spaces/:id", to: "home#show"
+  get "autocomplete", to: "search#show"
+  post "/like", to: "likes#create"
+  delete "/unlike", to: "likes#destroy"
+  get "/wishlist", to: "likes#wishlist"
 
-  devise_scope :member do
-    get "/members/:member_id/rooms/:id/", to: "registrations#show", as: "show_profile"
-    get "members/:id", to: "registrations#index", as: "index_profile"
-  end
+  devise_for :admins, controllers: { sessions: "manager/sessions", passwords: "manager/passwords" }
+  devise_for :members, controllers: { registrations: "registrations", sessions: "sessions",
+                                      passwords: "passwords", confirmations: "confirmations" }
+  get "/members/:member_id/rooms/:id/", to: "profiles#show", as: :show_profile
+  get "/members/:id", to: "profiles#index", as: :index_profile
 
   resources :rooms do
     resources :prices
   end
+
+  resources :favorite_spaces, only: [:show]
+  resources :search, only: :index
+  resources :autocomplete, only: :index
+  resources :trends
 
   namespace :manager do
     root "members#index"
@@ -23,20 +31,14 @@ Rails.application.routes.draw do
       resources :prices
     end
 
-    resources :favorite_spaces
-    resources :admins
-    resources :members
-    resources :utilities
-
     resources :locations do
       resources :areas, except: %i[destroy edit update]
     end
 
-    resources :areas, except: %i[new create] do
-      resources :addresses, only: %i[new create]
-    end
-
+    resources :favorite_spaces
+    resources :admins
+    resources :members
+    resources :utilities
     resources :areas, except: %i[new create]
-    resources :prices, only: %i[index new create]
   end
 end

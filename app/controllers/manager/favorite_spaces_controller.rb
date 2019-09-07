@@ -5,7 +5,7 @@ module Manager
     before_action :favorite_space, only: %i[edit update destroy]
 
     def index
-      @favorite_spaces = FavoriteSpace.newest.page(params[:page])
+      @favorite_spaces = FavoriteSpace.newest.page(params[:page]).per Settings.favorite_per
     end
 
     def new

@@ -225,6 +225,40 @@ en:
         title: Welcome Back!
         login_btn: "Log in"
         forgot_link: "Forgot your password?"
+    trends:
+      form:
+        name: "Name"
+        description: "Description"
+        submit: "Save Changes"
+        trend_room: "Trend Rooms"
+        status: "Status"
+      new:
+        title: "New Trends"
+      edit:
+        title: "New Trends"
+      create:
+        success: "Create trend successfully!"
+        danger: "Create trend has problem!"
+      trend:
+        delete: "Delete"
+        sure: "Are you sure?"
+      index:
+        title: "Trends"
+        new_trend: "New Trends"
+        key: "#"
+        name: "Name"
+        description: "Description"
+        status: "Status"
+        action: "Action"
+      update:
+        success: "Update trend successfully!"
+        danger: "Update trend has problem!"
+      destroy:
+        success: "Destroy trend successfully!"
+        danger: "Destroy trend has problem!"
+      convert_status:
+        success: "Convert status successfully!"
+        danger: "Convert status has problem!"
   messages:
     success:
       admins:

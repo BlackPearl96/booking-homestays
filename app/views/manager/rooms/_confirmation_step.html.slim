@@ -1,6 +1,5 @@
 .show-image
   = f.label :image, class: "col-form-label"
-
   = f.fields_for :room_images do |builder|
     .nested-fields
       - if builder.object.image?

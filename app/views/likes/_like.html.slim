@@ -1,0 +1,8 @@
+- if like? room
+  = link_to unlike_path(room_id: room), method: :delete, remote: true do
+    .wrapper-icon
+      .icon-wishlist.in-wishlist
+- else
+  = link_to like_path(room_id: room), method: :post, remote: true do
+    .wrapper-icon
+      .icon-wishlist

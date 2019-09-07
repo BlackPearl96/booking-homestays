@@ -3,6 +3,7 @@
 class HomeController < ApplicationController
   def index
     @favorite_spaces = FavoriteSpace.newest
+    @trends = Trend.newest
   end
 
   def show

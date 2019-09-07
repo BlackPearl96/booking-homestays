@@ -20,7 +20,9 @@
                 = t ".description_room", guest: "#{ f.guest }",
                   bed_room: "#{ f.bed_room }", bath_room: "#{ f.bath_room }"
             .card-text
-              p.small.bold.text-center = number_to_currency(f.price.cost)
+              p.small.bold.text-center
+                - f.price.present?
+                  = number_to_currency(f.price.cost)
             .card-text
               p.small.text-center = "#{ f.area.name }, #{ f.location.name }"
   .custom-paginate

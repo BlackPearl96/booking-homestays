@@ -1,0 +1,11 @@
+tr
+  td
+    = trend_counter.next
+  td
+    = link_to trend.name, edit_manager_trend_path(trend), class: "link-to-edit"
+  td
+    = trend.description
+  td
+    = set_status trend
+  td
+    = link_to t(".delete"), manager_trend_path(trend), class: "btn btn-danger", method: :delete, data: {confirm: t(".sure")}

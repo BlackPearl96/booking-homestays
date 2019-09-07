@@ -1,0 +1,17 @@
+.card.col-md-3 style=("width: 18rem;")
+  - if member_signed_in?
+    div[id="like_#{room.id}"]
+      = render partial: "likes/like", locals: {room: room}
+  = link_to "#", class: "room-image" do
+    = image_tag "location_2.png", class: "card-img-top image-content"
+  .card-body.promo-content
+    .card-favorite-spaces = room.favorite_space.name
+    .room-title = link_to room.name, "#", class: "trend-title"
+    .room-details
+      = room.guest
+      |  người - #{room.bed_room} phòng ngủ - #{room.bath_room} phòng tắm
+    .room-prices
+      | 1,003,476₫/đêm
+    .room-locations
+      = room.location_name
+      | , #{room.address}

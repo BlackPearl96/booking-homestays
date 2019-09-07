@@ -1,5 +1,7 @@
 tr
   td
     = address_counter.next
-  td = address.name
-  td = link_to t(".delete"), "#", class: "btn btn-danger
+  td
+    = link_to address.name, "#", class: "link-to-edit address-edit", data: {toggle: "modal", target: "#editModal", address_name: address.name, address_url: manager_address_path(address)}
+  td
+    = link_to t(".delete"), manager_address_path(address), class: "btn btn-danger", method: :delete, data: {confirm: t(".sure")}

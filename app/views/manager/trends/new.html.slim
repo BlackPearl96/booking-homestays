@@ -1,0 +1,8 @@
+- provide :title, t(".title")
+.row
+  .col-md-12
+    .card
+      .card-header
+        h4.card-title= t ".title"
+      .card-body
+        = render "form", trend: @trend

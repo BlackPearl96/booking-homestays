@@ -1,0 +1,19 @@
+.container
+  .info-rooms
+    | Hiện có #{@rooms.size} chỗ ở cho phép #{link_to "đặt phòng nhanh", "#"}
+  .row
+    - @rooms.each do |r|
+      .card.col-md-3 style=("width: 18rem;")
+        = link_to "#", class: "room-image" do
+          = image_tag "location_2.png", class: "card-img-top image-content"
+        .card-body.promo-content
+          .card-favorite-spaces = r.favorite_space.name
+          .room-title = link_to r.name, "#", class: "trend-title"
+          .room-details
+            = r.guest
+            |  người - #{r.bed_room} phòng ngủ - #{r.bath_room} phòng tắm
+          .room-prices
+            | 1,003,476₫/đêm
+          .room-locations
+            = r.location_name
+            | , #{r.address}

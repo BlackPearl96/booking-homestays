@@ -1,0 +1,13 @@
+#editModal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title = t ".edit"
+        button.close data-dismiss="modal" type="button"  ×
+      .modal-body
+        = form_tag "", id: "edit-address" do |f|
+          .form-group
+            = text_field_tag :name, nil, class: "form-control name_address"
+          = submit_tag t(".save"), class: "btn btn-primary"
+      .modal-footer
+        button.btn.btn-danger data-dismiss="modal" type="button"= t ".close"

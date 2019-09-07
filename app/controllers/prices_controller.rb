@@ -4,7 +4,7 @@ class PricesController < ApplicationController
   before_action :authenticate_member!
 
   before_action :load_price, only: %i[edit update destroy]
-  before_action :load_room, only: %i[edit new]
+  before_action :load_room, only: %i[edit create update new]
 
   def index
     @prices = Price.newest
@@ -23,16 +23,15 @@ class PricesController < ApplicationController
   def create
     @price = Price.new price_params
     if @price.save
-      redirect_to profile_path(@price.room_id), flash: { success: t(".success") }
+      redirect_to show_profile_path(current_member, @room), flash: { success: t(".success") }
     else
       render :new
     end
   end
 
-
   def update
     if @price.update price_params
-      redirect_to profile_path(@price.room_id), flash: { success: t(".success") }
+      redirect_to show_profile_path(current_member, @room), flash: { success: t(".success") }
     else
       render :edit
     end

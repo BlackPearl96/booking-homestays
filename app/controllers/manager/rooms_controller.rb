@@ -29,6 +29,7 @@ module Manager
       @room = current_admin.rooms.build session[:room_params]
       @room.current_step = session[:room_step]
       return redirect_to manager_room_path(@room), success: t(".create_room") if btn_action_step @room
+
       if @room.last_step?
         redirect_to new_manager_room_path
       else
@@ -40,6 +41,7 @@ module Manager
       @room.update room_params
       @room.current_step = session[:room_step]
       return redirect_to manager_room_path(@room), success: t(".update_success") if btn_action_step @room
+
       if @room.last_step?
         redirect_to edit_manager_room_path
       else
@@ -48,12 +50,7 @@ module Manager
     end
 
     def destroy
-      if @room.destroy
-        flash[:success] = t ".deleted_success"
-      else
-        flash[:danger] = t ".deleted_fail"
-      end
-      redirect_to manager_rooms_path
+      redirect_to manager_rooms_path, success: t(".deleted_success") if @room.destroy
     end
 
     private

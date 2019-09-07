@@ -1,0 +1,5 @@
+| $('#btn-set-#{@trend.id}').replaceWith('#{j set_status(@trend)}');
+- if flash[:success]
+  | toastr.success("#{flash[:success]}");
+- else
+  | toastr.error("#{flash[:danger]}");

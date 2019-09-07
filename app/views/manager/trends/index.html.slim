@@ -1,0 +1,18 @@
+- provide :title, t(".title")
+.row
+  .col-md-12
+    .card
+      .card-header
+        h4.card-title
+          = link_to t(".new_trend"), new_manager_trend_path, class: "btn btn-primary btn-xs right"
+      .card-body
+        table.table.table-hover.table-striped
+          thead
+            th= t ".key"
+            th= t ".name"
+            th= t ".description"
+            th= t ".status"
+            th= t ".action"
+          tbody
+            = render @trends
+        = paginate @trends, theme: "twitter-bootstrap-4", pagination_class: "pagination-sm"

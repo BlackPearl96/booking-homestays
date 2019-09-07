@@ -1,0 +1,17 @@
+= form_for [:manager, trend] do |f|
+  = render "shared/manager/error_messages", object: f.object
+  .form-group
+    = f.label t ".name", class: "control-label"
+    = f.text_field :name, class: "form-control", required: true
+  .form-group
+    = f.label t ".description", class: "control-label"
+    = f.text_area :description, class: "form-control", required: true, rows: 5
+  .form-group
+    = f.label t(".trend_room"), class: "control-label"
+    = f.select(:room_ids, select_room, {}, {class: "form-control select2", multiple: true})
+  .form-group
+    = f.label t ".status", class: "control-label"
+    = f.select(:status, select_status, {}, {class: "form-control"})
+
+  = f.submit t(".submit"), class: "btn btn-primary"
+

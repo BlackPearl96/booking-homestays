@@ -10,6 +10,11 @@ ul#accordionSidebar.navbar-nav.bg-gradient-primary.sidebar.sidebar-dark.accordio
       i.fa.fa-fw.fa-tachometer-alt
       span = t ".dashboard"
   hr.sidebar-divider.my-0/
+  - if current_admin.flag?
+    li.nav-item
+      = link_to manager_admins_path, class: "nav-link collapsed" do
+        i.fa.fa-user.fa-tachometer-alt
+        span = t ".manager_admin"
   li.nav-item
     = link_to manager_locations_path, class: "nav-link collapsed" do
       i.fa.fa-map-marker

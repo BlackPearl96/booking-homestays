@@ -1,0 +1,57 @@
+.bs-example
+  ul.nav.nav-tabs
+    li.nav-item
+      = link_to "#home", class: "nav-link active", data:{toggle: "tab"} do
+        = t ".description"
+    li
+      = link_to "#menu1", class: "nav-link", data:{toggle: "tab"} do
+        = t ".detail"
+    li
+      = link_to "#menu2", class: "nav-link", data:{toggle: "tab"} do
+        = t ".utility"
+    li
+      = link_to "#menu3", class: "nav-link", data:{toggle: "tab"} do
+        = t ".image"
+    li
+      - if @room.price.present?
+        a.nav-link data-toggle="tab" href="#menu4"  = t ".price"
+      - else
+        = link_to "Add Price", new_room_price_path(@room), class: "fa fa-plus btn btn-primary", id: "add-price"
+  .tab-content
+    #home.tab-pane.fade.show.active
+      h3 = @room.name
+      = @room.description
+    #menu1.tab-pane.fade
+      h3 = t ".room"
+      table.table.table-bordered#show-room-member
+        thead.thead-dark
+          tr
+            th = t ".guest"
+            th = t ".bed_room"
+            th = t ".bath_room"
+            th = t ".acreage"
+            th = t ".address"
+            th = t ".type_room"
+        tbody
+          tr [style="text-align: center;"]
+            td = @room.guest
+            td = @room.bed_room
+            td = @room.bath_room
+            td = @room.acreage
+            td = @room.address
+            td = @room.type_room
+    #menu2.tab-pane.fade
+      h3 = t ".utility"
+      - @room_utilities.each do |room_utility|
+        = room_utility.name
+    #menu3.tab-pane.fade
+      h3 = t ".image"
+      - @room.room_images.each do |img|
+        = image_tag img.image.url, class: "image-detail"
+    #menu4.tab-pane.fade
+      h3 = t ".price"
+      - if @room.price.present?
+        = @room.price.cost
+        - @room.price.bills.each do |f|
+          = bill_vouchers(f)
+        = link_to "Edit Price", edit_room_price_path(@room, @room.price), class: "btn btn-primary"

@@ -14,6 +14,7 @@ class Room < ApplicationRecord
   belongs_to :area
   has_many :room_images
   has_one :price, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :address, :name, :type_room, presence: true, if: :step_home?
   validates :guest, :bed_room, :bath_room, presence: true,
@@ -22,6 +23,11 @@ class Room < ApplicationRecord
   enum type_room: { Nhà_Riêng: 0, Căn_Hộ: 1 }
 
   accepts_nested_attributes_for :room_images, allow_destroy: true
+
+  delegate :name, to: :location, prefix: true
+  delegate :cost, to: :price, prefix: true
+
+  scope :by_like_room, ->(room_ids) { where id: room_ids }
 
   def current_step
     @current_step || STEPS.first

@@ -11,6 +11,12 @@ Member.create!(email: "member@gmail.com",
               address: "Member page!",
               confirmed_at: Time.now)
 
+Member.create!(email: "member2@gmail.com",
+              name: "MemberBot2",
+              password: "123123",
+              address: "Member page!",
+              confirmed_at: Time.now)
+
 50.times do |n|
   name = Faker::Name.name
   email = "admin#{n+1}@example.com"
@@ -80,4 +86,20 @@ end
 
 ["Wifi","May Giat", "Tu Lanh", "Ho Boi", "Dieu Hoa"].each do |utility|
   Utility.create! name: utility
+end
+
+3.times do |n|
+  Trend.create!(name: Faker::Lorem.sentence,
+    description: Faker::Lorem.paragraph,
+    status: 0)
+end
+
+20.times do |n|
+  TrendRoom.create!(trend_id: Trend.all.sample.id,
+    room_id: Room.all.sample.id)
+end
+
+20.times do |n|
+  RoomUtility.create!(room_id: Room.all.sample.id,
+    utility_id: Utility.all.sample.id)
 end

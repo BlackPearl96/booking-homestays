@@ -11,9 +11,8 @@
   = price.number_field :cleaning_fee, step: :any, class: "form-control", placeholder: "$"
   br/
   = price.fields_for(:vouchers) do |voucher|
-      = render "voucher_fields", f: voucher
+    = render "voucher_fields", f: voucher
   .links
     = link_to_add_association t(".add-voucher"), price, :vouchers
   div.btn-prices
     = price.submit class: "btn btn-primary price"
-    = link_to "Back", manager_prices_path, class: "btn btn-outline-secondary price"

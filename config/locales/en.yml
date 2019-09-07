@@ -56,13 +56,19 @@ en:
       new:
         create_utility: Create
 
+      form:
+        save: Save
+    utilities:
+      create_utility: Create Success
+      create_fail: can not create utility
+      new:
+        create_utility: Create
   shared:
     manager:
       left_menu:
         admin_manager: Admin Manager
         dashboard: Dashboard
         manager: Manager
-        location: Locations
         room: Rooms
         list: List Rooms
         create_room: Create Rooms
@@ -70,6 +76,10 @@ en:
         manager_admin: "Manager admins"
         manager_member: "Manager members"
         user: "User"
+        favorite_space: "Manager Favorite Spaces"
+        prices: "Manager Prices & Vouchers"
+        manager_admin: "Manager admins"
+        manager_member: "Manager members"
       top:
         logout: "Logout"
         settings: "Settings"

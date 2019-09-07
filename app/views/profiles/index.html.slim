@@ -1,0 +1,50 @@
+.user-profile
+  .profile.row
+    .col-md-4.avatar
+      .wrapper
+        - if current_member.avatar?
+          = image_tag current_member.avatar.url, class: "image_tag"
+    .col-md-8.basic-info
+      .user-wrapper
+        h2.username
+          = current_member.name
+      ul.posts
+        li
+          span
+            = @rooms.size
+          |  Posts
+        li
+          span
+            | 0
+          | Likes
+        li
+          span
+            | 0
+          | Replies
+      h2.name
+        = current_member.email
+      a.website[href="" title=""]
+        /= current_member.email
+.user-tabs
+  a.tab.active[href="" title=""]
+    i.fa.fa-th
+    |  ROOMS
+  a.tab[href="" title=""]
+    i.fa.fa-tv
+    |  IGTV
+  a.tab[href="" title=""]
+    i.fa.fa-bookmark
+    |  SAVED
+  a.tab[href="" title=""]
+    i.fa.fa-tag
+    |  TAGGED
+.row
+  .card-body
+    table.table.table-hover.table-striped
+      thead
+        th Name
+        th Location
+        th Type Room
+        th Action
+      tbody
+        = render @rooms

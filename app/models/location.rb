@@ -7,4 +7,6 @@ class Location < ApplicationRecord
   has_many :favorite_spaces, through: :location_favorites
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
+
+  delegate :name, to: :areas, prefix: true
 end

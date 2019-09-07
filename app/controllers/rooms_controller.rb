@@ -16,6 +16,7 @@ class RoomsController < ApplicationController
     @room = current_admin.rooms.build session[:room_params]
     @room.current_step = session[:room_step]
     return redirect_to manager_room_path(@room), success: t(".create_room") if btn_action_step @room
+
     if @room.last_step?
       redirect_to new_manager_room_path
     else
@@ -40,7 +41,7 @@ class RoomsController < ApplicationController
                                  :guest, :type_room, :acreage, :bed_room,
                                  :favorite_space_id, :code_room, :bath_room,
                                  :location_id, :area_id, utility_ids: [],
-                                 room_images_attributes: %i[id room_id image _destroy]
+                                                         room_images_attributes: %i[id room_id image _destroy]
   end
 
   def upload_images
@@ -69,12 +70,10 @@ class RoomsController < ApplicationController
 
   def get_area_to_location
     @areas = []
-    if params[:location].present?
-      @areas = Location.find(params[:location]).areas
-    end
+    @areas = Location.find(params[:location]).areas if params[:location].present?
     if request.xhr?
       respond_to do |format|
-        format.json { render json: {areas: @areas} }
+        format.json { render json: { areas: @areas } }
       end
     end
   end
