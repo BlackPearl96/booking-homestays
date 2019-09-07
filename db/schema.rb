@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_142140) do
   end
 
   create_table "prices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "room_id"
     t.decimal "cost", precision: 8, scale: 2
     t.decimal "cleaning_fee", precision: 8, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
@@ -108,6 +109,8 @@ ActiveRecord::Schema.define(version: 2019_09_06_142140) do
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "location_id"
+    t.bigint "favorite_space_id"
+    t.bigint "area_id"
     t.string "name"
     t.string "address"
     t.decimal "rate_point", precision: 10
@@ -117,6 +120,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_142140) do
     t.decimal "acreage", precision: 10
     t.integer "bed_room"
     t.integer "bath_room"
+    t.integer "code_room"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "favorite_space_id"
@@ -125,6 +129,23 @@ ActiveRecord::Schema.define(version: 2019_09_06_142140) do
     t.index ["favorite_space_id"], name: "index_rooms_on_favorite_space_id"
     t.index ["location_id"], name: "index_rooms_on_location_id"
     t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
+  create_table "trend_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "trend_id"
+    t.bigint "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_trend_rooms_on_room_id"
+    t.index ["trend_id"], name: "index_trend_rooms_on_trend_id"
+  end
+
+  create_table "trends", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -175,4 +196,6 @@ ActiveRecord::Schema.define(version: 2019_09_06_142140) do
   add_foreign_key "rooms", "favorite_spaces"
   add_foreign_key "rooms", "locations"
   add_foreign_key "rooms", "users"
+  add_foreign_key "trend_rooms", "rooms"
+  add_foreign_key "trend_rooms", "trends"
 end

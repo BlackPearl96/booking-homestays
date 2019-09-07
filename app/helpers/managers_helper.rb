@@ -20,4 +20,8 @@ module ManagersHelper
   def set_utilities
     Utility.sort_by_name
   end
+
+  def set_utilities
+    Utility.sort_by_name
+  end
 end

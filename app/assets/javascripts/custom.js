@@ -39,3 +39,22 @@ function readURL(f, previewId) {
     reader.readAsDataURL(f.files[0]);
   }
 }
+
+
+function previewImages() {
+
+  var $preview = $('#preview').empty();
+  if (this.files) $.each(this.files, readAndPreview);
+
+  function readAndPreview(i, file) {
+    var reader = new FileReader();
+    $(reader).on("load", function() {
+      $preview.append($("<img/>", {src:this.result, height:150, width:150}));
+    });
+    reader.readAsDataURL(file);
+  }
+}
+
+$(document).ready(function() {
+  $('.preview-image').on("change", previewImages);
+});

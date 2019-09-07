@@ -13,6 +13,10 @@ module Manager
       @price.vouchers.build
     end
 
+    def edit
+      @price.vouchers.build
+    end
+
     def new
       @price = Price.new
       @price = @room.build_price

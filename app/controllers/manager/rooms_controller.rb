@@ -24,6 +24,10 @@ module Manager
       @room_utilities = @room.utilities
     end
 
+    def show
+      @room_utilities = @room.room_utilities
+    end
+
     def create
       session[:room_params].deep_merge!(room_params) if room_params
       @room = current_admin.rooms.build session[:room_params]

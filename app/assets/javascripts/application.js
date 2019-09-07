@@ -4,10 +4,10 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require custom
 //= require toastr
 //= require multislider
 //= require jquery-ui
+//= require custom
 
 /*global toastr*/
 toastr.options = {

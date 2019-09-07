@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :favorite_spaces, only: [:show]
   resources :search, only: :index
   resources :autocomplete, only: :index
+  resources :rooms
 
   namespace :manager do
     root "members#index"

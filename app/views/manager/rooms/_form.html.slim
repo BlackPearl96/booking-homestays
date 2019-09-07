@@ -1,5 +1,4 @@
 = form_for [:manager, @room] do |f|
-
   = render "shared/manager/error_messages", object: @room
 
   = render "#{@room.current_step}_step", f: f

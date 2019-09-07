@@ -17,6 +17,7 @@ body {
 header
 ---------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
 body {
   margin: 0;
   padding: 0;
@@ -24,6 +25,39 @@ body {
   color: #222;
   font-weight: 500;
   font-size: 1rem;
+}
+
+header {
+  background: #111;
+}
+
+.banner-image {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  opacity: 0;
+  z-index: 1;
+  color: #fff;
+  transform: translateX(-50%) translateY(-50%);
+  animation: fade-in 0.75s 0.25s ease-in forwards;
+  h1 {
+    margin: 0;
+    font-size: 4em;
+    line-height: 1.2em;
+    font-weight: bold;
+  }
+  h1:hover{
+    color: #dee2e6;
+  }
+  p {
+    margin: 0;
+    font-size: 1.4em;
+    font-style: italic;
+    font-family: serif;
+  }
+  p:hover{
+    color: #dee2e6;
+  }
 }
 
 .headline {
@@ -102,7 +136,6 @@ section {
   width: 100%;
   margin: 25px auto;
   padding: 20px;
-  max-width: 800px;
   font-size: 1.2em;
   line-height: 1.6em;
   box-sizing: border-box;
@@ -278,7 +311,6 @@ html, body{
 
 .fixed_footer{
   width: 100%;
-  height: 111px;
   background: #111;
 }
 
@@ -651,20 +683,24 @@ h1, h2, h3, h4, h5, h6 {
 #exampleSlider {
   position: relative;
 }
+
 @media (max-width: 767px) {
   #exampleSlider {
     border-color: transparent;
   }
 }
+
 #exampleSlider .MS-content {
   overflow: hidden;
   white-space: nowrap;
 }
+
 @media (max-width: 767px) {
   #exampleSlider .MS-content {
     margin: 0;
   }
 }
+
 #exampleSlider .MS-content .item {
   display: inline-block;
   height: 100%;
@@ -674,21 +710,25 @@ h1, h2, h3, h4, h5, h6 {
   border-right: none;
   width: 20%;
 }
+
 @media (max-width: 1200px) {
   #exampleSlider .MS-content .item {
     width: 25%;
   }
 }
+
 @media (max-width: 992px) {
   #exampleSlider .MS-content .item {
     width: 33.3333%;
   }
 }
+
 @media (max-width: 767px) {
   #exampleSlider .MS-content .item {
     width: 50%;
   }
 }
+
 #exampleSlider .MS-content .item p {
   font-size: 30px;
   text-align: center;
@@ -697,6 +737,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 10px 0;
 }
+
 #exampleSlider .MS-controls button {
   position: absolute;
   border: none;
@@ -705,25 +746,31 @@ h1, h2, h3, h4, h5, h6 {
   outline: 0;
   top: 35px;
 }
+
 @media (max-width: 767px) {
   #exampleSlider .MS-controls button {
     display: none;
   }
 }
+
 #exampleSlider .MS-controls button:hover {
   cursor: pointer;
 }
+
 #exampleSlider .MS-controls .MS-left {
   left: 10px;
 }
+
 @media (max-width: 992px) {
   #exampleSlider .MS-controls .MS-left {
     left: -2px;
   }
 }
+
 #exampleSlider .MS-controls .MS-right {
   right: 10px;
 }
+
 @media (max-width: 992px) {
   #exampleSlider .MS-controls .MS-right {
     right: -2px;
@@ -844,4 +891,292 @@ ul.ui-autocomplete {
   z-index: 1000;
   overflow: auto;
   max-height: 400px;
+}
+
+#hs-wrapper{
+  background-color: #f1efef;
+  font-size: 10px;
+  line-height: 1.625em;
+  font-family: Open sans;
+  font-weight: 400;
+  color: #512b1a;
+  margin: 40px;
+}
+
+.simple-container.note {
+  border-color: #ca005d;
+}
+.simple-container.with-icon {
+  padding-left: 44px;
+  position: relative;
+  height: 77px;
+}
+.simple-container.border {
+  border-width: 2px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.simple-container {
+  padding: 1.25em 15px;
+  border-radius: 4px;
+  border: 1px solid #dbd8d6;
+}
+
+.simple-container.with-icon .icon {
+  width: 18px;
+  height: 30px;
+  background-size: contain;
+  background-position: top left;
+  position: absolute;
+  top: 21px;
+  left: 15px;
+}
+
+.simple-container p {
+  font-size: .75em;
+  line-height: 1.6em;
+  letter-spacing: .03em;
+  padding: 0;
+}
+.strong {
+  font-weight: 600;
+}
+
+.spacer-double {
+  margin-top: 2.5em;
+}
+
+.homestay-container.no-shadow {
+  box-shadow: inset 0 0 0 1px #dbd8d6;
+}
+
+.homestay-container {
+  background-color: white;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.homestay-container .body:last-of-type {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.homestay-container .body:not(.no-padding) {
+  padding: 1.25em 15px;
+}
+
+.homestay-container > div {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.homestay-container .body .detail.lightbulb-icon {
+  background-image: url("lightpub.png");
+}
+
+.homestay-container .body .detail.flush {
+  margin-top: -1.25em;
+  height: 80px;
+}
+
+.homestay-container .body .detail {
+  width: 45px;
+  height: 50px;
+  float: right;
+  margin-left: 0.4166666667em;
+  margin-bottom: 0.4166666667em;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+}
+
+.lightbulb-icon {
+  background: url("lightpub.png") center no-repeat;
+}
+
+h5 {
+  font-size: .75em;
+  line-height: 1.625em;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+
+#homestay-wizard #profile-sidebar .homestay-container ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: .9em;
+}
+
+h5 + p, h5 + ul {
+  margin-top: .5em;
+}
+
+#homestay-wizard #profile-sidebar .homestay-container ul li {
+  margin-left: .7em;
+  text-indent: -.7em;
+  line-height: 1.6em;
+}
+
+.homestay_wizard #sidebar-modal .homestay-container ul li::before, #homestay-wizard #profile-sidebar .homestay-container ul li::before {
+  content: "• ";
+}
+
+#homestay-wizard #profile-sidebar .homestay-container ul li + li {
+  margin-top: .3em;
+}
+
+#homestay-wizard #profile-sidebar .homestay-container ul li {
+  margin-left: .7em;
+  text-indent: -.7em;
+  line-height: 1.6em;
+}
+
+.room {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+#homestay-wizard .room-tabs > li.active {
+  box-shadow: none;
+  padding: 1.25em 15px;
+}
+
+.room-stacked > li + li {
+  margin-top: 2px;
+  margin-left: 0;
+}
+
+.room-stacked > li {
+  float: none;
+}
+
+.room-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+
+.room > li {
+  position: relative;
+  display: block;
+}
+
+.tabs-room {
+  width: 100%;
+  float: left;
+  background-color: #ca005d;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+}
+
+.tab-content-room {
+  padding-top: 1.25em;
+  padding-bottom: 1.25em;
+  background-color: #ffffff;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+  min-height: 248px;
+  border-radius: 10px;
+}
+
+.col-xs-12{
+  width: 100%;
+}
+
+#new_room {
+  padding: 0px 25px 35px 25px;
+}
+
+.btn-continue{
+  float: right;
+}
+
+.create-room{
+  padding: 0 26px;
+  margin-top: 20px;
+}
+
+div#homestay-wizard {
+  margin: 0;
+}
+
+/* checkbox utiliti */
+.form-checbox {
+  float: left;
+  margin: 50px 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.check-box-utility {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 40px 0 40px;
+}
+
+/* Hide the browser's default checkbox */
+.check-box-utility input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.check-box-utility:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.check-box-utility input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.check-box-utility input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.check-box-utility .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.control-label{
+  font-weight: 700;
 }
